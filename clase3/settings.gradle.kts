@@ -22,5 +22,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Actividad1"
+rootProject.name = "ClaseFCA3"
 include(":app")
+ 
