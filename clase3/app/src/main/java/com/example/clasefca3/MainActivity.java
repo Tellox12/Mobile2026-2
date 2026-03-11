@@ -43,22 +43,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void renderizaAlumnos() {
-        if (indice >= nombres[indiceGrupo][indice].length()) {
-            indice = 0;
-        }
+        // 1. Primero avanzamos al siguiente alumno
         indice += 1;
+
+
+        if (indice >= nombres[indiceGrupo].length) {
+            indice = 0;       // Reiniciamos al primer alumno
+            indiceGrupo += 1; // Aprovechamos para cambiar al siguiente grupo aquí mismo
+
+
+            if (indiceGrupo >= grupos.length) {
+                indiceGrupo = 0;
+            }
+        }
+
+
         miTexto.setText(nombres[indiceGrupo][indice]);
     }
 
     private void renderizaGrupo() {
-        if (indice >= nombres[indiceGrupo][indice].length()) {
-            indiceGrupo += 1;
-        }
         miGrupo.setText(grupos[indiceGrupo]);
     }
 
     @Override
     public void onClick(View v) {
+        // Tu estructura original se queda exactamente igual
         renderizaAlumnos();
         renderizaGrupo();
     }
