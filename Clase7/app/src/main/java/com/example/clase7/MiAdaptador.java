@@ -1,50 +1,63 @@
 package com.example.clase7;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.recyclerview.widget.RecyclerView;
-
+import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 
 public class MiAdaptador extends RecyclerView.Adapter<MiViewHolder> {
 
-    private ArrayList<String> localDataSet;
+    private ArrayList<Personaje> localDataSet;
 
-    // cambiamos String[] por ArrayList<String>
-    public MiAdaptador(ArrayList<String> dataSet) {
+    public MiAdaptador(ArrayList<Personaje> dataSet) {
         localDataSet = dataSet;
     }
 
-    // Create new views (invoked by the layout manager)
     @Override
     public MiViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
-        // Create a new view, which defines the UI of the list item
         View view = LayoutInflater.from(viewGroup.getContext())
                 .inflate(R.layout.text_row_item, viewGroup, false);
 
         return new MiViewHolder(view);
     }
 
-    // Replace the contents of a view (invoked by the layout manager)
     @Override
     public void onBindViewHolder(MiViewHolder viewHolder, final int position) {
+        Personaje p = localDataSet.get(position);
 
-        viewHolder.getTextView().setText(localDataSet.get(position));
+        viewHolder.getTextView().setText(p.getName());
+
+        Glide.with(viewHolder.itemView.getContext())
+                .load(p.getPhoto())
+                .centerCrop()
+                .into(viewHolder.getImageView());
+
+        // Acción de clic para ir a la segunda pantalla
+        viewHolder.itemView.setOnClickListener(v -> {
+            Context context = v.getContext();
+            Intent intent = new Intent(context, DetailActivity.class);
+            intent.putExtra("personaje", p);
+            context.startActivity(intent);
+        });
     }
 
-    // Return the size of your dataset (invoked by the layout manager)
     @Override
     public int getItemCount() {
         return localDataSet.size();
     }
 
-    //agregra datos nuevos
-    public void agregarNombre(String nuevoNombre) {
-        localDataSet.add(nuevoNombre); // Lo mete a la lista
-        notifyItemInserted(localDataSet.size() - 1); // Le avisa a la pantalla que dibuje el nuevo
+    public void agregarPersonaje(Personaje nuevo) {
+        localDataSet.add(nuevo);
+        notifyItemInserted(localDataSet.size() - 1);
     }
 
-
-
+    public void actualizarDatos(ArrayList<Personaje> nuevosDatos) {
+        localDataSet.clear();
+        localDataSet.addAll(nuevosDatos);
+        notifyDataSetChanged();
+    }
 }

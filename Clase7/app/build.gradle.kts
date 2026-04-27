@@ -41,10 +41,8 @@ dependencies {
     implementation(libs.activity)
     implementation(libs.constraintlayout)
     implementation("com.squareup.okhttp3:okhttp:5.3.0")
+    implementation("com.github.bumptech.glide:glide:5.0.5")
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
-
 }
-
-

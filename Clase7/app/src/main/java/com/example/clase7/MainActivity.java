@@ -4,7 +4,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
-
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -12,10 +11,6 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.example.clase7.MiAdaptador;
-import com.example.clase7.R;
-
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -40,30 +35,37 @@ public class MainActivity extends AppCompatActivity {
         btnAgregar = findViewById(R.id.btnAgregar);
         recyclerView = findViewById(R.id.my_recycler_view);
 
-        Cliente cliente = new Cliente();
-
-        AsyncTask.execute(() ->{
-            ArrayList<String> misDatos = cliente.getElements();
-            runOnUiThread(() -> {
-                adaptador = new MiAdaptador(misDatos);
-                recyclerView.setAdapter(adaptador);
-            });
-
-        });
-
-
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        adaptador = new MiAdaptador(new ArrayList<>());
         recyclerView.setAdapter(adaptador);
 
-        btnAgregar.setOnClickListener(v ->{
+        MiCliente miCliente = new MiCliente();
+
+        AsyncTask.execute(() -> {
+            try {
+                ArrayList<Personaje> misDatos = miCliente.getElementos();
+                runOnUiThread(() -> {
+                    adaptador.actualizarDatos(misDatos);
+                });
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+
+        /*
+
+        btnAgregar.setOnClickListener(v -> {
             String nuevoNombre = edtInput.getText().toString();
-
             if (!nuevoNombre.isEmpty()){
-                adaptador.agregarNombre(nuevoNombre);
+                // Aquí creamos un personaje genérico para el ejemplo
+                Personaje p = new Personaje(nuevoNombre, "Nuevo", "", 10, 10);
+                adaptador.agregarPersonaje(p);
                 edtInput.setText("");
-
                 recyclerView.scrollToPosition(adaptador.getItemCount()-1);
             }
         });
+
+         */
     }
 }

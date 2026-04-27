@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="#121212">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NUEVO PERSONAJE"
+        android:textColor="#CC0000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp"/>
+
+    <EditText
+        android:id="@+id/etNombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nombre del personaje"
+        android:textColorHint="#888"
+        android:textColor="#FFF" />
+
+    <EditText
+        android:id="@+id/etDesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Descripción"
+        android:textColorHint="#888"
+        android:textColor="#FFF" />
+
+    <EditText
+        android:id="@+id/etPhoto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="URL de la Foto"
+        android:textColorHint="#888"
+        android:textColor="#FFF" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+
+        <EditText
+            android:id="@+id/etAttack"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Ataque"
+            android:inputType="number"
+            android:textColorHint="#888"
+            android:textColor="#FFF" />
+
+        <EditText
+            android:id="@+id/etDef"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Defensa"
+            android:inputType="number"
+            android:textColorHint="#888"
+            android:textColor="#FFF" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnGuardar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="#CC0000"
+        android:text="GUARDAR EN RAILWAY"
+        android:textColor="#FFF" />
+
+</LinearLayout>
