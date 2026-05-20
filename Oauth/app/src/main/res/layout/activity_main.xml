@@ -9,7 +9,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="760dp"
+        android:minHeight="820dp"
         android:padding="24dp">
 
         <TextView
@@ -37,7 +37,7 @@
             android:id="@+id/tvGreeting"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="34dp"
+            android:layout_marginTop="32dp"
             android:fontFamily="sans-serif-medium"
             android:text="Hola"
             android:textColor="@color/white"
@@ -50,7 +50,7 @@
             android:id="@+id/balancePanel"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="18dp"
             android:background="@drawable/bbva_auth_panel"
             android:orientation="vertical"
             android:padding="22dp"
@@ -59,6 +59,7 @@
             app:layout_constraintTop_toBottomOf="@id/tvGreeting">
 
             <TextView
+                android:id="@+id/tvAccountHolder"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Cuenta digital"
@@ -71,22 +72,22 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:fontFamily="sans-serif-medium"
-                android:text="Sesion activa"
+                android:text="Cuenta Libreton"
                 android:textColor="@color/white"
                 android:textSize="25sp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Acceso protegido"
+                android:layout_marginTop="6dp"
+                android:text="**** 3026"
                 android:textColor="#B9DDF3"
                 android:textSize="14sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="66dp"
-                android:layout_marginTop="18dp"
+                android:layout_height="74dp"
+                android:layout_marginTop="16dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -100,7 +101,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Disponible"
+                        android:text="Saldo disponible"
                         android:textColor="#CDE7F8"
                         android:textSize="13sp" />
 
@@ -109,19 +110,99 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="3dp"
                         android:fontFamily="sans-serif-medium"
-                        android:text="$ 0.00"
+                        android:text="$ 12,450.00"
                         android:textColor="@color/white"
-                        android:textSize="27sp" />
+                        android:textSize="28sp" />
                 </LinearLayout>
 
                 <com.airbnb.lottie.LottieAnimationView
-                    android:layout_width="76dp"
-                    android:layout_height="66dp"
+                    android:layout_width="78dp"
+                    android:layout_height="70dp"
                     app:lottie_autoPlay="true"
                     app:lottie_loop="true"
                     app:lottie_rawRes="@raw/home" />
             </LinearLayout>
+        </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/quickActionsPanel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:background="@drawable/bbva_auth_panel"
+            android:orientation="vertical"
+            android:padding="14dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/balancePanel">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:text="Operaciones"
+                android:textColor="@color/white"
+                android:textSize="17sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnTransfer"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/bbva_button"
+                    android:text="Transferir"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    app:cornerRadius="4dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnPayService"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/bbva_button"
+                    android:text="Pagar"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    app:cornerRadius="4dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnCard"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/bbva_blue_mid"
+                    android:text="Tarjeta"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    app:cornerRadius="4dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnWithdraw"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/bbva_blue_mid"
+                    android:text="Retiro"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    app:cornerRadius="4dp" />
+            </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
@@ -132,13 +213,16 @@
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/balancePanel">
+            app:layout_constraintTop_toBottomOf="@id/quickActionsPanel">
 
             <LinearLayout
+                android:id="@+id/tileOpportunities"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/bbva_tile"
+                android:clickable="true"
+                android:focusable="true"
                 android:gravity="center"
                 android:orientation="vertical">
 
@@ -158,11 +242,14 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/tileSecurity"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginStart="12dp"
                 android:layout_weight="1"
                 android:background="@drawable/bbva_tile"
+                android:clickable="true"
+                android:focusable="true"
                 android:gravity="center"
                 android:orientation="vertical">
 
@@ -183,9 +270,54 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/movementsPanel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bbva_auth_panel"
+            android:orientation="vertical"
+            android:padding="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/actionsPanel">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:text="Ultimos movimientos"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="Deposito recibido                                      + $ 2,500.00"
+                android:textColor="#D4EDFC"
+                android:textSize="13sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Pago servicio movil                                      - $ 299.00"
+                android:textColor="#D4EDFC"
+                android:textSize="13sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Compra con tarjeta                                      - $ 840.00"
+                android:textColor="#D4EDFC"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/promoPanel"
             android:layout_width="0dp"
-            android:layout_height="132dp"
+            android:layout_height="124dp"
             android:layout_marginTop="16dp"
             android:background="@drawable/bbva_auth_panel"
             android:gravity="center_vertical"
@@ -193,7 +325,7 @@
             android:padding="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/actionsPanel">
+            app:layout_constraintTop_toBottomOf="@id/movementsPanel">
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -214,14 +346,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="6dp"
-                    android:text="Consulta movimientos, seguridad y promociones."
+                    android:text="Consulta seguridad y promociones."
                     android:textColor="#CDE7F8"
                     android:textSize="13sp" />
             </LinearLayout>
 
             <com.airbnb.lottie.LottieAnimationView
-                android:layout_width="104dp"
-                android:layout_height="104dp"
+                android:layout_width="92dp"
+                android:layout_height="92dp"
                 app:lottie_autoPlay="true"
                 app:lottie_loop="true"
                 app:lottie_rawRes="@raw/campana" />

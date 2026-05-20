@@ -2,7 +2,9 @@ package com.example.oauth;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
@@ -28,8 +30,34 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
+        LocalAccountManager accountManager = new LocalAccountManager(this);
+        TextView tvGreeting = findViewById(R.id.tvGreeting);
+        TextView tvAccountHolder = findViewById(R.id.tvAccountHolder);
         Button btnLogout = findViewById(R.id.btnLogout);
         Button btnDeleteAccount = findViewById(R.id.btnDeleteAccount);
+        Button btnTransfer = findViewById(R.id.btnTransfer);
+        Button btnPayService = findViewById(R.id.btnPayService);
+        Button btnCard = findViewById(R.id.btnCard);
+        Button btnWithdraw = findViewById(R.id.btnWithdraw);
+        View tileOpportunities = findViewById(R.id.tileOpportunities);
+        View tileSecurity = findViewById(R.id.tileSecurity);
+
+        String fullName = accountManager.getFullName();
+        String email = accountManager.getEmail();
+        if (fullName != null && !fullName.isEmpty()) {
+            tvGreeting.setText("Hola, " + fullName.split(" ")[0]);
+            tvAccountHolder.setText(fullName);
+        } else if (email != null && !email.isEmpty()) {
+            tvGreeting.setText("Hola");
+            tvAccountHolder.setText(email);
+        }
+
+        btnTransfer.setOnClickListener(v -> showFeature("Transferencias disponibles en modo demostracion"));
+        btnPayService.setOnClickListener(v -> showFeature("Pago de servicios listo para conectar"));
+        btnCard.setOnClickListener(v -> showFeature("Tarjeta digital protegida"));
+        btnWithdraw.setOnClickListener(v -> showFeature("Retiro sin tarjeta preparado"));
+        tileOpportunities.setOnClickListener(v -> showFeature("No tienes oportunidades nuevas por ahora"));
+        tileSecurity.setOnClickListener(v -> showFeature("Seguridad activa con acceso protegido"));
 
         btnLogout.setOnClickListener(v -> {
             tokenManager.clearToken();
@@ -55,5 +83,9 @@ public class MainActivity extends AppCompatActivity {
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
         finish();
+    }
+
+    private void showFeature(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 }

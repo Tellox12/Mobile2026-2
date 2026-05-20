@@ -37,6 +37,14 @@ public class LocalAccountManager {
         return savedEmail.equalsIgnoreCase(email.trim()) && savedPassword.equals(password);
     }
 
+    public String getFullName() {
+        return prefs.getString(KEY_FULL_NAME, "");
+    }
+
+    public String getEmail() {
+        return prefs.getString(KEY_EMAIL, "");
+    }
+
     public void clearAccount() {
         prefs.edit().clear().apply();
     }
