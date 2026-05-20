@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.CentralAviones" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Colores primarios -->
+        <item name="colorPrimary">@color/accent_cyan</item>
+        <item name="colorPrimaryVariant">@color/surface_card</item>
+        <item name="colorOnPrimary">@color/black</item>
+
+        <!-- Colores secundarios -->
+        <item name="colorSecondary">@color/accent_blue</item>
+        <item name="colorSecondaryVariant">@color/surface_card</item>
+        <item name="colorOnSecondary">@color/black</item>
+
+        <!-- Fondo de la app -->
+        <item name="android:windowBackground">@color/bg_dark</item>
+        <item name="colorSurface">@color/surface_card</item>
+
+        <!-- Barras del sistema: oscuras -->
+        <item name="android:statusBarColor">@color/bg_dark</item>
+        <item name="android:navigationBarColor">@color/bg_dark</item>
+
+        <!-- Iconos de la barra de estado: claros sobre fondo oscuro -->
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">false</item>
+    </style>
+
+</resources>
