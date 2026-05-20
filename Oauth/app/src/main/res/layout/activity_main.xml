@@ -9,7 +9,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="720dp"
+        android:minHeight="760dp"
         android:padding="24dp">
 
         <TextView
@@ -37,7 +37,7 @@
             android:id="@+id/tvGreeting"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="36dp"
+            android:layout_marginTop="34dp"
             android:fontFamily="sans-serif-medium"
             android:text="Hola"
             android:textColor="@color/white"
@@ -51,7 +51,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:background="@drawable/bbva_panel"
+            android:background="@drawable/bbva_auth_panel"
             android:orientation="vertical"
             android:padding="22dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -62,7 +62,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Cuenta digital"
-                android:textColor="@color/ink_secondary"
+                android:textColor="#CDE7F8"
                 android:textSize="14sp" />
 
             <TextView
@@ -72,23 +72,62 @@
                 android:layout_marginTop="8dp"
                 android:fontFamily="sans-serif-medium"
                 android:text="Sesion activa"
-                android:textColor="@color/bbva_blue_dark"
+                android:textColor="@color/white"
                 android:textSize="25sp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="Acceso protegido con Google"
-                android:textColor="@color/ink_secondary"
+                android:text="Acceso protegido"
+                android:textColor="#B9DDF3"
                 android:textSize="14sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="66dp"
+                android:layout_marginTop="18dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Disponible"
+                        android:textColor="#CDE7F8"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="$ 0.00"
+                        android:textColor="@color/white"
+                        android:textSize="27sp" />
+                </LinearLayout>
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:layout_width="76dp"
+                    android:layout_height="66dp"
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="true"
+                    app:lottie_rawRes="@raw/home" />
+            </LinearLayout>
 
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/actionsPanel"
             android:layout_width="0dp"
-            android:layout_height="96dp"
+            android:layout_height="104dp"
             android:layout_marginTop="14dp"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
@@ -104,16 +143,16 @@
                 android:orientation="vertical">
 
                 <com.airbnb.lottie.LottieAnimationView
-                    android:layout_width="46dp"
-                    android:layout_height="46dp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
                     app:lottie_autoPlay="true"
                     app:lottie_loop="true"
-                    app:lottie_rawRes="@raw/home" />
+                    app:lottie_rawRes="@raw/opportunities" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Inicio"
+                    android:text="Oportunidades"
                     android:textColor="@color/white"
                     android:textSize="13sp" />
             </LinearLayout>
@@ -128,16 +167,16 @@
                 android:orientation="vertical">
 
                 <com.airbnb.lottie.LottieAnimationView
-                    android:layout_width="46dp"
-                    android:layout_height="46dp"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
                     app:lottie_autoPlay="true"
                     app:lottie_loop="true"
-                    app:lottie_rawRes="@raw/opportunities" />
+                    app:lottie_rawRes="@raw/fingerprint_icon" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Oportunidades"
+                    android:text="Seguridad"
                     android:textColor="@color/white"
                     android:textSize="13sp" />
             </LinearLayout>
@@ -148,10 +187,10 @@
             android:layout_width="0dp"
             android:layout_height="132dp"
             android:layout_marginTop="16dp"
-            android:background="@drawable/bbva_panel"
+            android:background="@drawable/bbva_auth_panel"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:padding="14dp"
+            android:padding="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/actionsPanel">
@@ -167,21 +206,21 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-medium"
-                    android:text="Promociones"
-                    android:textColor="@color/bbva_blue_dark"
+                    android:text="Avisos y novedades"
+                    android:textColor="@color/white"
                     android:textSize="18sp" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="6dp"
-                    android:text="Revisa novedades para tu cuenta."
-                    android:textColor="@color/ink_secondary"
+                    android:text="Consulta movimientos, seguridad y promociones."
+                    android:textColor="#CDE7F8"
                     android:textSize="13sp" />
             </LinearLayout>
 
             <com.airbnb.lottie.LottieAnimationView
-                android:layout_width="112dp"
+                android:layout_width="104dp"
                 android:layout_height="104dp"
                 app:lottie_autoPlay="true"
                 app:lottie_loop="true"
@@ -193,10 +232,10 @@
             android:layout_width="0dp"
             android:layout_height="56dp"
             android:layout_marginTop="18dp"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/bbva_button"
             android:text="Cerrar sesion"
             android:textAllCaps="false"
-            android:textColor="@color/bbva_blue_dark"
+            android:textColor="@color/white"
             app:cornerRadius="4dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
